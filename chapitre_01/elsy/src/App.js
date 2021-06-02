@@ -10,19 +10,29 @@ const stepsMin=0;
 const stepsM=50000;
 
 class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {  
+      water: 0,
+      heart: 120,
+      temperature: -10,
+      steps: 3000
+    };
+  }
+  onHeartChange(e){
+    this.setState({heart: e.target.value})
+  }
   render() {
     
     return (
      <div className="container-fluid">
-      <div className="row "></div>
-      <p>Heart: {heartMin}</p>
-         <p>Temperature: {tempMin}</p>
-           <p>Steps: {stepsMin}</p>
+      <div className="row"></div>
 
-           <Box icon="local_drink" color="#3A85FF" value={1.5} unit="L" />
-      <Box icon = "directions_walk" color = "black" value={3000}/>
-      <Box icon="favorite" color = "red" value={120}/>
-      <Box icon="wb_sunny" color = "yellow" value={-10}/>
+      <Box icon="local_drink" color="#3A85FF" value={1.5} unit="L" />
+      <Box icon = "directions_walk" color = "black" value={this.state.steps}/>
+      <Box icon="favorite" color = "red" value={this.state.heart} min= {heartMin} max= {heartMax} onChange= {this.onHeartChange}/>
+      <Box icon="wb_sunny" color = "yellow" value={this.state.temperature}/>
       
     
     </div>
