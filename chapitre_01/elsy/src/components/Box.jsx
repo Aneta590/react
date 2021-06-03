@@ -5,7 +5,7 @@ class Box extends React.Component {
     render() {
         let maybeslider
     if (this.props.icon!== "local_drink"){
-        maybeslider=<input type= "range"/> 
+        maybeslider=<input type= "range" onChange={this.props.onChange}  /> 
     
     }
     
@@ -15,7 +15,7 @@ class Box extends React.Component {
                 <span className="material-icons" style={{ fontSize: 100, color: this.props.color }}>
                     {this.props.icon}
                 </span>
-                <p>{this.props.value}  {this.props.unit}</p>
+                <p>{this.props.value}  {this.props.unit}  </p>
                 {maybeslider}
                 
             </div>

@@ -2,12 +2,12 @@ import React from "react";
 import './styles/global.css';
 import Box from './components/Box.jsx';
 
-const tempMin=-20;
-const tempMax=40;
+const tempMin= -20;
+const tempMax= 40;
 const heartMin=80;
 const heartMax=180;
 const stepsMin=0;
-const stepsM=50000;
+const stepsMax=50000;
 
 class App extends React.Component {
   constructor() {
@@ -20,9 +20,17 @@ class App extends React.Component {
       steps: 3000
     };
   }
-  onHeartChange(e){
-    this.setState({heart: e.target.value})
+  
+  onHeartChange=(e)=>{
+    this.setState({heart: e.target.value});
   }
+  onStepsChange=(e)=>{
+    this.setState({steps: e.target.value});
+  }
+  onTemperatureChange=(e)=>{
+    this.setState({temperature: e.target.value});
+  }
+  
   render() {
     
     return (
@@ -30,9 +38,9 @@ class App extends React.Component {
       <div className="row"></div>
 
       <Box icon="local_drink" color="#3A85FF" value={1.5} unit="L" />
-      <Box icon = "directions_walk" color = "black" value={this.state.steps}/>
+      <Box icon = "directions_walk" color = "black" value={this.state.steps} min= {stepsMin} max= {stepsMax} onChange= {this.onStepsChange}/>
       <Box icon="favorite" color = "red" value={this.state.heart} min= {heartMin} max= {heartMax} onChange= {this.onHeartChange}/>
-      <Box icon="wb_sunny" color = "yellow" value={this.state.temperature}/>
+      <Box icon="wb_sunny" color = "yellow" value={this.state.temperature} min= {tempMin} max= {tempMax} onChange= {this.onTemperatureChange}/>
       
     
     </div>
