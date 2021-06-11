@@ -1,18 +1,37 @@
-
-import React from 'react';
-import  '../App.js'
+import React from 'react'
 
 class Add extends React.Component {
+  constructor () {
+    super()
 
- 
+    this.state = {
+      protuctName: '',
+      price: 1,
+    }
+    
 
-  render() {
+
+   this.updatePriceWithBind = this.updatePriceWithBind.bind(this)
+  }
+  updateProductName=(event)=>{
+    this.setState({ productName: event.target.value})
+  }
+
+  updatePrice=(event) => {
+    this.setState({ price: event.target.value})
+  }
+  updatePriceWithBind(){
+
+  }
+
+  render () {
     return (
       <div>
-       <p>Add</p> 
+        <input type="text" onChange={this.updateProductName} className="form-control" />
+        <input type="range" onChange={this.updatePrice} min={1} max={10} className="form-range"/>
+        <button className="btn btn-primary" onClick={()=>this.props.addItem(this.state.protuctName,this.state.price)}>Add</button>
       </div>
     )
   }
 }
-
-export default Add;
+export default Add

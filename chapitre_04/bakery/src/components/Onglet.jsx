@@ -1,22 +1,15 @@
-import  Button  from 'react-bootstrap/Button';
-import React from 'react';
-
-
+import React from 'react'
 class Onglet extends React.Component {
-
- 
-
-  render() {
+  render () {
     return (
-      <div>
-        
-       <Button variant= {this.props.isSelected ? 'primary' :'outline-dark'} onClick={this.props.onClick} >{this.props.children}</Button>
-       {this.props.toSelected}
-       {this.props.onClick}
-       {this.props.children}
-      </div>
+      <button
+        type="button"
+        className={this.props.isSelected ? 'btn btn-primary' : 'btn btn-dark'}
+        onClick={this.props.onClick}
+      >
+        {this.props.children}
+      </button>
     )
   }
 }
-
 export default Onglet
