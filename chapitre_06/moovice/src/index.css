@@ -1,0 +1,12 @@
+.MoviesList{
+  display: flex;
+  flex-wrap: wrap;
+}
+.ul{
+  display: flex;  
+  list-style-type: none; 
+}
+.ul a{
+  color: white !important;
+}
+

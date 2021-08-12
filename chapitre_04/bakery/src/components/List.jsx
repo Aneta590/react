@@ -2,12 +2,7 @@ import React from 'react';
 
 
 class List extends React.Component {
-  constructor () {
-    super()
-  }
   
-  
-
   render() {
     return (
       <div>
@@ -24,3 +19,4 @@ class List extends React.Component {
 }
 
 export default List;
+

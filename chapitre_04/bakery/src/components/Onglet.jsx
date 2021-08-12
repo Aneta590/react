@@ -1,4 +1,5 @@
 import React from 'react'
+
 class Onglet extends React.Component {
   render () {
     return (
@@ -13,3 +14,4 @@ class Onglet extends React.Component {
   }
 }
 export default Onglet
+

@@ -1,16 +1,19 @@
 
-import './App.css';
+import './App.css'
 import React from 'react'
+import Counter from './Counter.jsx'
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+     super(props);
+    this.decrementCount=this.decrementCount.bind(this)
+   
 
     this.state = { 
-      count: 0,   
-    };
+      count: 0  
+    }
   }
-  decrementCount=()=>{
+  decrementCount(){
     this.setState({count:this.state.count -1})
   }
   incrementCount=()=>{
@@ -18,16 +21,9 @@ class App extends React.Component {
   }
   render(){
   return (
-    <div className="Counter">
-        <h1>
-         "Counter" 
-        </h1>
-        <h2>{this.state.count}</h2>
-       
-       <button class="plus" onClick={this.decrementCount} >minus</button> 
-       <button class="minus" onClick={this.incrementCount} >plus</button> 
-    </div>
-  );
+  <Counter addFunction={this.incrementCount} subtractFunction={this.decrementCount} count={this.state.count}/>
+  )
+    
 } 
 }
-export default App;
+export default App

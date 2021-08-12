@@ -18,21 +18,7 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    try {
-      const result = await fetch('https://restcountries.eu/rest/v2/name/france')
-      const country = await result.json()
-      this.setState({
-        name: country[0].name,
-        capital: country[0].capital,
-        flag: country[0].flag,
-        population: country[0].population,
-        region: country[0].region,
-
-      })
-      console.info('METHODE AWAIT', country)
-    } catch (error) {
-      console.error(error)
-    }
+    this.getCountry('france')
 
     //fetch('https://restcountries.eu/rest/v2/name/france')
     //.then(result => result.json())
@@ -68,8 +54,11 @@ class App extends React.Component {
         <Button onClick={() => this.getCountry('france')}>France</Button>
         <Button onClick={() => this.getCountry('brazil')}>Brazil</Button>
         <Button onClick={() => this.getCountry('croatia')}>Croatia</Button>
+        <Button onClick={() => this.getCountry('taiwan')}>Taiwan</Button>
+        <Button onClick={() => this.getCountry('poland')}>Pologne</Button>
 
         <Card {...this.state}></Card>
+       
       </div >
     )
   }
